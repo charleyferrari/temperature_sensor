@@ -4,8 +4,7 @@ import numpy as np
 import os
 import datetime
 
-import adafruit_dht
-from board import D4
+import Adafruit_DHT
 sensor = Adafruit_DHT.DHT22
 pin = 18
 
