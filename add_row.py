@@ -6,7 +6,8 @@ import datetime
 
 import adafruit_dht
 from board import D4
-dht_device = adafruit_dht.DHT22(D4)
+sensor = Adafruit_DHT.DHT22
+pin = 18
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -35,8 +36,7 @@ def get_temp_hum(dht_device):
     count = 0
     while True:
         try:
-            temperature = dht_device.temperature
-            humidity = dht_device.humidity
+            humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
             if temperature is not None or humidity is not None:
                 return {
                     'temperature': (temperature * (9/5)) + 32,

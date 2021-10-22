@@ -5,7 +5,6 @@ import os
 import datetime
 
 import Adafruit_DHT
-dht_device = adafruit_dht.DHT22(D4)
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
