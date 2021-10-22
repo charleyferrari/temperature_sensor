@@ -4,8 +4,7 @@ import numpy as np
 import os
 import datetime
 
-import adafruit_dht
-from board import D4
+import Adafruit_DHT
 dht_device = adafruit_dht.DHT22(D4)
 
 import gspread
@@ -17,12 +16,14 @@ base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city = 'New York City'
 complete_url = base_url + "appid=" + api_key + "&q=" + city
 
+sensor = Adafruit_DHT.DHT22
+pin = 18
+
 def get_temp_hum(dht_device):
     count = 0
     while True:
         try:
-            temperature = dht_device.temperature
-            humidity = dht_device.humidity
+            humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
             if temperature is not None or humidity is not None:
                 return {
                     'temperature': (temperature * (9/5)) + 32,
