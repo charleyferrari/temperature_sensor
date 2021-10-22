@@ -62,7 +62,7 @@ feedsURL = 'https://spreadsheets.google.com/feeds'
 driveURL = 'https://www.googleapis.com/auth/drive'
 scope = [feedsURL, driveURL]
 
-filepath = '/home/pi/google_credentials/gspread-329ef1b5ac67.json'
+filepath = '/home/pi/google-drive-api/gspread-329ef1b5ac67.json'
 
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     filepath, scope)
