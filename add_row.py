@@ -31,7 +31,7 @@ except:
 
 # Get internal temps
 
-def get_temp_hum(dht_device):
+def get_temp_hum():
     count = 0
     while True:
         try:
@@ -53,7 +53,7 @@ def get_temp_hum(dht_device):
                 }
             pass
 
-internals = get_temp_hum(dht_device)
+internals = get_temp_hum()
 
 # Authorize gspread
 
